@@ -6,7 +6,7 @@ from typing import List, Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    """Retrieves the index range from a given page and page size.
+    """Generates index range for pagination based on specified page and size.
     """
     start = (page - 1) * page_size
     end = start + page_size
@@ -14,12 +14,12 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
 
 
 class Server:
-    """Server class to paginate a database of popular baby names.
+    """A `Server` class for handling pagination of a popular baby names database.
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
-        """Initializes a new Server instance.
+        """Instantiates a new Server object.
         """
         self.__dataset = None
 
@@ -35,7 +35,7 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """Retrieves a page of data.
+        """Fetches a paginated dataset.
         """
         assert type(page) == int and type(page_size) == int
         assert page > 0 and page_size > 0
